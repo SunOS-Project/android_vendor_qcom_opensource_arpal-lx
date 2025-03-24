@@ -1719,6 +1719,7 @@ silence_det_setup_done:
                     hpCnfg->mode = PAL_STREAM_HAPTICS_RINGTONE;
                 }
                 if (hpCnfg != NULL) {
+#ifdef PARAM_ID_HAPTICS_RX_PCMV_PLAYBACK
                     if (hpCnfg->mode == PAL_STREAM_HAPTICS_PCM) {
                         builder->payloadHapticsDevPConfig(&payload, &payloadSize,
                             miid, PARAM_ID_HAPTICS_RX_PCMV_PLAYBACK,(void *)hpCnfg);
@@ -1733,6 +1734,7 @@ silence_det_setup_done:
                             }
                         }
                     }
+#endif
 
                     builder->payloadHapticsDevPConfig(&payload, &payloadSize,
                             miid, PARAM_ID_HAPTICS_WAVE_DESIGNER_CFG,(void *)hpCnfg);
@@ -3399,6 +3401,7 @@ int SessionAlsaPcm::setParameters(Stream *streamHandle, int tagId, uint32_t para
                     return status;
                 }
                 if (hpCnfg != NULL) {
+#ifdef PARAM_ID_HAPTICS_RX_PCMV_PLAYBACK
                     if (hpCnfg->mode == PAL_STREAM_HAPTICS_PCM) {
                         builder->payloadHapticsDevPConfig(&paramData, &paramSize,
                             miid, PARAM_ID_HAPTICS_RX_PCMV_PLAYBACK,(void *)hpCnfg);
@@ -3411,6 +3414,7 @@ int SessionAlsaPcm::setParameters(Stream *streamHandle, int tagId, uint32_t para
                             freeCustomPayload(&paramData, &paramSize);
                         }
                     }
+#endif
                     builder->payloadHapticsDevPConfig(&paramData, &paramSize,
                                miid, PARAM_ID_HAPTICS_WAVE_DESIGNER_CFG,(void *)hpCnfg);
                     if (paramSize) {

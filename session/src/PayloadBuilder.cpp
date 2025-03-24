@@ -4870,6 +4870,7 @@ void PayloadBuilder::payloadHapticsDevPConfig(uint8_t** payload, size_t* size, u
                  free(HConfig);
             }
             break;
+#ifdef PARAM_ID_HAPTICS_RX_PCMV_PLAYBACK
             case PARAM_ID_HAPTICS_RX_PCMV_PLAYBACK:
             {
                 pal_param_haptics_cnfg_t *data;
@@ -4898,6 +4899,7 @@ void PayloadBuilder::payloadHapticsDevPConfig(uint8_t** payload, size_t* size, u
                 memcpy(buf_ptr, data->buffer_ptr, hpconf->buffer_size);
             }
             break;
+#endif
         default:
             {
                 PAL_ERR(LOG_TAG, "unknown param id 0x%x", param_id);
