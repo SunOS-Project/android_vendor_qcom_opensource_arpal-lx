@@ -1237,6 +1237,8 @@ enum TAGS_DEFINITIONS {
     MODULE_SP2                  = 0xC0000048, /**< @h2xmle_name {"module_sp2"} */
     TAG_MODULE_CPS2             = 0xC0000049, /**< @h2xmle_name {"module_cps2"} */
     TAG_MODULE_TSM              = 0xC000004B, /**< @h2xmle_name {"module_tsm"} */
+    TAG_MODULE_ASR              = 0xC00000F0, /* FIXME: value is wrong! */
+    TAG_TONE_RENDERER_MODULE    = 0xC00000F1, /* FIXME: value is wrong! */
 };
 typedef enum TAGS_DEFINITIONS TAGS_DEFINITIONS;
 
